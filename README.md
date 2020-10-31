@@ -1,4 +1,4 @@
-# npgsl-timeouts-ignored
+# npgsql-timeouts-ignored
 An experiment to determine where a PostgreSQL timeout is being ignored
 
 ## Is the problem `Npgsql`?

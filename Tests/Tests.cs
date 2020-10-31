@@ -33,8 +33,13 @@ namespace Tests
                     thrownException = ex;
                 }
 
+                const string v4_MESSAGE = "Connection timed out";
+                const string v5_MESSAGE = "Timeout during reading attempt";
                 Assert.IsNotNull(thrownException, $"Expected a {nameof(NpgsqlException)} to be thrown");
-                Assert.IsTrue(thrownException.InnerException.Message.Contains("Connection timed out"));
+                Assert.IsTrue(
+                    thrownException.InnerException.Message.Contains(v4_MESSAGE) ||
+                    thrownException.InnerException.Message.Contains(v5_MESSAGE),
+                    $"actual message: {thrownException.InnerException.Message}");
             }
 
             [TestMethod]
